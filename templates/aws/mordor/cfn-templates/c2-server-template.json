@@ -46,7 +46,7 @@
     },
     "Mappings" : {
         "UbuntuAWSRegionArch2AMI" : {
-            "us-east-1" : { "HVM64" : "ami-064a0193585662d74" },
+            "us-east-1" : { "HVM64" : "ami-03a2cbdcd9e7d1955" },
             "us-west-1" : { "HVM64" : "ami-056d04da775d124d7" },
             "us-west-2" : { "HVM64" : "ami-09a3d8a7177216dcf" }
         }

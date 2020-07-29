@@ -108,7 +108,7 @@
     },
     "Mappings" : {
         "WindowsServerAWSRegionArch2AMI" : {
-            "us-east-1" : { "HVM64" : "ami-02b212aba9eb84405" },
+            "us-east-1" : { "HVM64" : "ami-05bb2dae0b1de90b3" },
             "us-west-1" : { "HVM64" : "ami-0d5ab31b93c643ca8" }
         }
     },

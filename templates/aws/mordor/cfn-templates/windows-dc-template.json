@@ -105,7 +105,7 @@
     },
     "Mappings" : {
         "WindowsServerAWSRegionArch2AMI" : {
-            "us-east-1" : { "HVM64" : "ami-02b212aba9eb84405" },
+            "us-east-1" : { "HVM64" : "ami-05bb2dae0b1de90b3" },
             "us-west-1" : { "HVM64" : "ami-0d5ab31b93c643ca8" },
             "us-west-2" : { "HVM64" : "ami-0d5ab31b93c643ca8" }
         }
@@ -196,9 +196,6 @@
                             },
                             "c:\\cfn\\scripts\\Set-Auditing.ps1": {
                                 "source": "https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1"
-                            },
-                            "c:\\cfn\\scripts\\Install-Endpoint-Agent.ps1": {
-                                "source": "https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/templates/aws/mordor/cfn-files/scripts/default/Install-Endpoint-Agent.ps1"
                             },
                             "c:\\cfn\\scripts\\Import-GPO.ps1": {
                                 "source": "https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/templates/aws/mordor/cfn-files/scripts/default/Import-GPO.ps1"
@@ -319,18 +316,6 @@
                                             "powershell.exe -ExecutionPolicy RemoteSigned -Command c:\\cfn\\scripts\\Import-GPO.ps1",
                                             " -GPOUrl ", { "Ref" : "GPOUrl" },
                                             " -DomainDNSName ", { "Ref" : "DomainDNSName" }
-                                        ]
-                                    ]
-                                },
-                                "waitAfterCompletion": "0"
-                            },
-                            "d-install-endpoint-agent": {
-                                "command": {
-                                    "Fn::Join": [
-                                        "",
-                                        [
-                                            "powershell.exe -ExecutionPolicy RemoteSigned -Command c:\\cfn\\scripts\\Install-Endpoint-Agent.ps1",
-                                            " -EndpointAgent ", { "Ref" : "EndpointAgent" }
                                         ]
                                     ]
                                 },
