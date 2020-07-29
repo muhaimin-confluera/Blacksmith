@@ -60,7 +60,7 @@ esac
 
 # Downloading Impacker Binaries from https://github.com/ropnop/impacket_static_binaries
 echo "$INFO_TAG Downloading Impacket binaries.."
-mkdir /opt/Impacket
+mkdir -p /opt/Impacket
 cd /opt/Impacket && curl -s https://api.github.com/repos/ropnop/impacket_static_binaries/releases/latest | grep "browser_download_url.*linux_x86_64" | cut -d '"' -f 4 | wget -qi -
 
 # *********** Running default C2 Selected ***********
@@ -86,15 +86,15 @@ else
     if ! [ -x "$(command -v docker-compose)" ]; then
         echo "$INFO_TAG Installing docker-compose.."
         COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
-        curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose >> $LOGFILE 2>&1
+        curl -s -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose >> $LOGFILE 2>&1
         chmod +x /usr/local/bin/docker-compose >> $LOGFILE 2>&1
     fi
     
     echo "$INFO_TAG Setting up Caldera.."
-    mkdir /opt/Caldera
-    mkdir /opt/Caldera/config
-    curl -L https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/aws/mordor/cfn-files/docker/caldera/docker-compose-caldera.yml -o /opt/Caldera/docker-compose-caldera.yml >> $LOGFILE 2>&1
-    curl -L https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/aws/mordor/cfn-files/docker/caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml -o /opt/Caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml >> $LOGFILE 2>&1
+    mkdir -p /opt/Caldera
+    mkdir -p /opt/Caldera/config
+    curl -s -L https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/docker-compose-caldera.yml -o /opt/Caldera/docker-compose-caldera.yml >> $LOGFILE 2>&1
+    curl -s -L https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml -o /opt/Caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml >> $LOGFILE 2>&1
     echo "$INFO_TAG Running Caldera by default.."
     docker-compose -f /opt/Caldera/docker-compose-caldera.yml up --build -d
 fi
