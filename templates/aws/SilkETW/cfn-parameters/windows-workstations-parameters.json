@@ -29,6 +29,6 @@
   },
   {
     "ParameterKey": "WinlogbeatConfigUrl",
-    "ParameterValue": "https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/aws/SilkETW/cfn-files/configs/silketw_winlogbeat.yml"
+    "ParameterValue": "https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/aws/SilkETW/cfn-files/configs/silketw_winlogbeat.yml"
   }
 ]

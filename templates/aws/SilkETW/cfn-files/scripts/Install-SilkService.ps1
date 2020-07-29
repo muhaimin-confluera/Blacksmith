@@ -42,7 +42,7 @@ if (!$MVC_Check)
 }
 
 # Download SilkServiceConfig.xml
-$SilkServiceConfigUrl = "https://raw.githubusercontent.com/hunters-forge/Blacksmith/master/aws/SilkETW/cfn-files/configs/SilkServiceConfig.xml"
+$SilkServiceConfigUrl = "https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/aws/SilkETW/cfn-files/configs/SilkServiceConfig.xml"
 
 $OutputFile = Split-Path $SilkServiceConfigUrl -leaf
 $SilkServiceConfigPath = "C:\cfn\scripts\$file\v8\SilkService\SilkServiceConfig.xml"
