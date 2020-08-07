@@ -11,7 +11,7 @@ LABEL description="Dockerfile Mordor Caldera.."
 USER ${USER}
 
 RUN cd $CALDERA_HOME/plugins \
-  && git clone https://github.com/d4weiss/evals_caldera.git \
+  && git clone https://github.com/muhaimin-confluera/evals_caldera.git \
   && mv $CALDERA_HOME/conf/local.yml $CALDERA_HOME/conf/local.yml.bk
   # && git clone https://github.com/mitre-attack/evals_caldera.git \
 
