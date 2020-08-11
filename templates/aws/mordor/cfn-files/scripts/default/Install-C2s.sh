@@ -94,7 +94,9 @@ else
     mkdir -p /opt/Caldera
     mkdir -p /opt/Caldera/config
     curl -s -L https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/docker-compose-caldera.yml -o /opt/Caldera/docker-compose-caldera.yml >> $LOGFILE 2>&1
+    curl -s -L https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/Dockerfile -o /opt/Caldera/Dockerfile >> $LOGFILE 2>&1
     curl -s -L https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml -o /opt/Caldera/config/a93f6915-a9b8-4a6b-ad46-c072963b32c1.yml >> $LOGFILE 2>&1
+    curl -s -L https://raw.githubusercontent.com/muhaimin-confluera/Blacksmith/master/templates/aws/mordor/cfn-files/docker/caldera/config/local.yml -o /opt/Caldera/config/local.yml >> $LOGFILE 2>&1
     echo "$INFO_TAG Running Caldera by default.."
     docker-compose -f /opt/Caldera/docker-compose-caldera.yml up --build -d
 fi
